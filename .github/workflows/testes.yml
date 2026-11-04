@@ -1,0 +1,40 @@
+name: Testes automatizados InovaGAB
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Instalar Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Executar testes
+        run: |
+          if [ -f package.json ]; then
+            npm install
+            firebase emulators:exec --project demo-inovagab --only auth,firestore "npm test"
+          else
+            echo "ERRO: arquivos do projeto de testes ainda não foram enviados."
+            exit 1
+          fi
