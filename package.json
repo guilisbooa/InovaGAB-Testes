@@ -1,0 +1,14 @@
+{
+  "name": "inovagab-automated-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Testes BDD e API para o aplicativo InovaGAB usando Firebase Emulator Suite",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:report": "mkdir -p reports && cucumber-js --format progress --format json:reports/cucumber-report.json"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "11.2.0",
+    "ajv": "8.17.1"
+  }
+}

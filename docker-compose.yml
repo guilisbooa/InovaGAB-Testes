@@ -1,0 +1,26 @@
+services:
+  firebase:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9099:9099"
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9099').then(()=>process.exit(0)).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    environment:
+      AUTH_BASE_URL: "http://firebase:9099"
+      FIRESTORE_BASE_URL: "http://firebase:8080"
+      FIREBASE_PROJECT_ID: "demo-inovagab"
+      FIREBASE_API_KEY: "fake-api-key"
+    depends_on:
+      firebase:
+        condition: service_healthy

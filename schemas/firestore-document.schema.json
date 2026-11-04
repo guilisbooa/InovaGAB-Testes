@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["name", "fields", "createTime", "updateTime"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "fields": {"type": "object"},
+    "createTime": {"type": "string"},
+    "updateTime": {"type": "string"}
+  },
+  "additionalProperties": true
+}

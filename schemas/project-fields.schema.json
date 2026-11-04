@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["name", "stage", "status", "investment", "roi", "progressPercent"],
+  "properties": {
+    "name": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}},
+    "stage": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["planejamento", "execução", "monitoramento", "concluído"]}}},
+    "status": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["on_track", "at_risk", "delayed", "completed"]}}},
+    "investment": {"type": "object", "required": ["doubleValue"], "properties": {"doubleValue": {"type": "number", "minimum": 0}}},
+    "roi": {"type": "object", "required": ["doubleValue"], "properties": {"doubleValue": {"type": "number"}}},
+    "progressPercent": {"type": "object", "required": ["integerValue"], "properties": {"integerValue": {"type": "string", "pattern": "^(0|[1-9][0-9]?|100)$"}}}
+  },
+  "additionalProperties": true
+}

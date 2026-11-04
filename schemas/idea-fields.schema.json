@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["title", "description", "category", "status", "createdBy"],
+  "properties": {
+    "title": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}},
+    "description": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string"}}},
+    "category": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["logística", "passageiros", "comércio", "processos", "tecnologia"]}}},
+    "status": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["pending", "approved", "rejected", "in_progress"]}}},
+    "createdBy": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "localId",
+    "email",
+    "idToken",
+    "refreshToken",
+    "expiresIn"
+  ],
+  "properties": {
+    "localId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    "idToken": {
+      "type": "string",
+      "minLength": 1
+    },
+    "refreshToken": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expiresIn": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

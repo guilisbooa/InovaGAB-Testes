@@ -33,8 +33,15 @@ jobs:
         run: |
           if [ -f package.json ]; then
             npm install
-            firebase emulators:exec --project demo-inovagab --only auth,firestore "npm test"
+            firebase emulators:exec --project demo-inovagab --only auth,firestore "npm run test:report"
           else
             echo "ERRO: arquivos do projeto de testes ainda não foram enviados."
             exit 1
           fi
+
+      - name: Publicar relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes
+          path: reports/

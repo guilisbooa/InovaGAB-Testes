@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["title", "description", "order", "createdBy"],
+  "properties": {
+    "title": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}},
+    "description": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string"}}},
+    "order": {"type": "object", "required": ["integerValue"], "properties": {"integerValue": {"type": "string", "pattern": "^[0-9]+$"}}},
+    "createdBy": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}}
+  },
+  "additionalProperties": true
+}
