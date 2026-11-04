@@ -4,7 +4,7 @@
   "required": ["name", "email", "role", "points", "level"],
   "properties": {
     "name": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}},
-    "email": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "pattern": "^[^@\\\\s]+@[^@\\\\s]+\\\\.[^@\\\\s]+$"}}},
+    "email": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"}}},
     "role": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["operator", "manager", "leader"]}}},
     "points": {"type": "object", "required": ["integerValue"], "properties": {"integerValue": {"type": "string", "pattern": "^[0-9]+$"}}},
     "level": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["Iniciante", "Inovador", "Expert", "Visionário"]}}}

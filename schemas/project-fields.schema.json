@@ -6,8 +6,8 @@
     "name": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"type": "string", "minLength": 1}}},
     "stage": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["planejamento", "execução", "monitoramento", "concluído"]}}},
     "status": {"type": "object", "required": ["stringValue"], "properties": {"stringValue": {"enum": ["on_track", "at_risk", "delayed", "completed"]}}},
-    "investment": {"type": "object", "required": ["doubleValue"], "properties": {"doubleValue": {"type": "number", "minimum": 0}}},
-    "roi": {"type": "object", "required": ["doubleValue"], "properties": {"doubleValue": {"type": "number"}}},
+    "investment": {"type": "object", "anyOf": [{"required": ["doubleValue"]}, {"required": ["integerValue"]}], "properties": {"doubleValue": {"type": "number", "minimum": 0}, "integerValue": {"type": "string", "pattern": "^[0-9]+$"}}},
+    "roi": {"type": "object", "anyOf": [{"required": ["doubleValue"]}, {"required": ["integerValue"]}], "properties": {"doubleValue": {"type": "number"}, "integerValue": {"type": "string", "pattern": "^-?[0-9]+$"}}},
     "progressPercent": {"type": "object", "required": ["integerValue"], "properties": {"integerValue": {"type": "string", "pattern": "^(0|[1-9][0-9]?|100)$"}}}
   },
   "additionalProperties": true
